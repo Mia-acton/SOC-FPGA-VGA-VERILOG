@@ -35,7 +35,10 @@ Insert synthesis summary.
 ### **Demonstration**
 The final design was loaded onto the FPGA and successfully displayed the generated graphics on a VGA monitor. Below are photographs of the working demos showing the output on screen.
 
-Insert VGA output images for stripes and colourcycle. 
+![Alt text](docs/IMG_5756.jpg)
+![Alt text](docs/IMG_5761.jpg)
+![Alt text](docs/IMG_5762.jpg)
+
 
 ## **My VGA Design Edit**
 Introduce your own design idea. Consider how complex/achievabble this might be or otherwise. Reference any research you do online (use hyperlinks).
