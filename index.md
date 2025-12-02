@@ -35,7 +35,7 @@ Insert synthesis summary.
 ### **Demonstration**
 The final design was loaded onto the FPGA and successfully displayed the generated graphics on a VGA monitor. Below are photographs of the working demos showing the output on screen.
 
-![Image 1](assets/images/IMG_5756.jpg)
+![Image 1](IMG_5756.jpg)
 ![Image 2](assets/images/IMG_5761.jpg)
 ![Image 3](assets/images/IMG_5762.jpg)
 
