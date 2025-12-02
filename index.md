@@ -10,7 +10,7 @@ Welcome to my FPGA VGA Driver Project, where I bring classic Pac-Man characters 
 ### **Project Set-Up**
 Summarise the project set-up and design flow. Include a screenshot of your own set-up, for example see the image of my Project Summary window below. Guideline 1 short paragraph.
 
-![Image](ProjectSet-up.png)
+![Image](ProjectSetup.png)
 
 ### **Template Code**
 The template Verilog modules provided - ColourCycle and ColourStripes - introduce the basic structure for generating RGB signals on an FPGA using VGA timing. Both templates are designed to work alongside a VGA controller that outputs the current pixel's row and column coordinates, as well as the horizontal and vertical sync pulses. VGA works by scanning each pixel of the screen one row at a time, so your Verilog design must produce a correct RGB value for every (row, col) position during the active video period. 
