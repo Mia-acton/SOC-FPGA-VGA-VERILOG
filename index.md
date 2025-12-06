@@ -40,8 +40,6 @@ The final design was loaded onto the FPGA and successfully displayed the generat
 ![Image 2](IMG_5761.jpg)
 
 ## **My VGA Design Edit**
-Introduce your own design idea. Consider how complex/achievabble this might be or otherwise. Reference any research you do online (use hyperlinks).
-
 I decided to create a simple Pac-Man-style visual for my FPGA VGA Driver project. Going into this, I assumed it would be relatively straightforward to configure the VGA logic and draw a few basic shapes on screen - but I quickly discovered that even simple graphics can become challenging when built at the hardware-description level.
 
 To build confidence, I first created a few small practice visuals, including the French and Jamaican flags, as shown below. These early tests helped me establish a foundation in drawing pixel regions, using row/column counters, and controlling RGB signals. Once I felt comfortable with this workflow, I moved on to developing my actual Pac-Man scene. 
@@ -57,13 +55,18 @@ I intentionally built each part in stages I began with Pac-Man on a blank screen
 Despite the unexpected challenges, working through these problems game me a much deeper understanding of VGA timing, pixel-based rendering, and hardware-driven graphics. The iterative process of refining each component ultimately shaped the final version of my project. 
 
 ### **Code Adaptation**
-Briefly show how you changed the template code to display a different image. Demonstrate your understanding. Guideline: 1-2 short paragraphs.
+I decided to use the Stripes template code as the foundation for my project, modifying it so that instead of solid colour bands, it would draw pixel-based shapes for my Pac-Man scene. To do this, I reorganised the template into clearly defined sections and assigned priority levels to each graphic element. This allowed lower-priority objects (like the maze walls) to be drawn first, while higher-priority objects (such as Pac-Man and the ghosts) were drawn afterward so they would appear on top. 
 
-I decided to use the Stripes template code to design my project. I split my VGAStripes file into different sections in order to tackle the code block by block. I started with the lowest priority image, i.e. the maze walls. I coded each wall line by line  
+The first modification I made was replacing the original stripe-generation logic with my own conditional checks for specific pixel regions. I began with the lowest-priority component - the maze grid - and created it by defining rectangular regions line by line using row and column comparisons. Once the walls rendered correctly, I added additional sections for the pac-dots, ghosts, and finally Pac-Man. This step-by-step restructuring demonstrated how the original template could be adapted from simple coloured stripes into a layered, fully customised VGA image. 
+
 ### **Simulation**
-Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
+To test my VGA design, I simulated the project using Vivado's built-in simulator, which allowed me to examine how the timing signals and RBG outputs behaved over time. In the waveform, key signals such as clk, hsync, vsync, and the row/col counters can be seen updating as the pixel clock advances. Watching these counters increment and reset confimred that the VGA timing generator was working correctly - particularly the transition through the active video region and the blanking intervals. I also monitored the red, green, and blue outputs to verify that colour values were being assigned only when the row and column matched the coordinate ranges of Pac-Man, the ghosts, or the maze walls. 
+
+One important observation from simulation is that Vivado does not display the actual picture - instead, it shows signal changes. For example, in my screenshot, I can see the RGB values momentarily swicthing to non-zero values whenever the counters pass through areas where my code draws a specific object. This helped me confirm that my priority logic was correct and that higher-priority objects (like Pac-Man) were drawn after background elements. By reviewing these transitions, I was able to catch small alignment and timing issues before synthesising the design onto hardware.  
+
 ### **Synthesis**
 Describe the synthesis & implementation outputs for your design, are there any differences to that of the original design? Guideline 1-2 short paragraphs.
+
 ### **Demonstration**
 While my final design may not have been perfect, I did learn a lot from this project. 
 
