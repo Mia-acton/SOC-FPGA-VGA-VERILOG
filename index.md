@@ -42,7 +42,19 @@ The final design was loaded onto the FPGA and successfully displayed the generat
 ## **My VGA Design Edit**
 Introduce your own design idea. Consider how complex/achievabble this might be or otherwise. Reference any research you do online (use hyperlinks).
 
-I decided to create a simple Pac-Man design for my FPGA VGA Driver Project. Going into this project, I thought it would be relatively straight-forward to configure my design accordingly - but I was sorely mistaken. I researched a number of different ideas before finally deciding on Pac-Man, I even went as far as to design and build some basic level applications on VGA including the french and jamaican flags (as seen below). I did this in order to establish a comfort level in my knowlege to this style of code, and when I decided I was happy with the output - I moved on to coding my actual project. My design consisted of a yellow Pac-Man character, three ghosts (red, white and cyan), a blue maze-like grid, and beige pac-dots. I went through various different stages in building my project, starting with a simple visual of Pac-Man on his own. I thought it was important to ensure I understood the layout of my grid before I started hard coding my final design, so I started at a foundation level. Creating the Pac-Man character itself was relatively easy at first, and I soon integrated two ghosts to figure out my alignment. Once I added in the maze-like structure things started to get a bit more complicated as I was having some alignment issues and trouble figuring out prioriy levels. 
+I decided to create a simple Pac-Man-style visual for my FPGA VGA Driver project. Going into this, I assumed it would be relatively straightforward to configure the VGA logic and draw a few basic shapes on screen - but I quickly discovered that even simple graphics can become challenging when built at the hardware-description level.
+
+To build confidence, I first created a few small practice visuals, including the French and Jamaican flags, as shown below. These early tests helped me establish a foundation in drawing pixel regions, using row/column counters, and controlling RGB signals. Once I felt comfortable with this workflow, I moved on to developing my actual Pac-Man scene. 
+
+My final design consists of four main components:
+  - A yellow Pac-Man character
+  - Three ghosts (red, white, and cyan)
+  - A blue maze-like grid structure
+  - Beige pac-dots scattered throughout the maze
+
+I intentionally built each part in stages I began with Pac-Man on a blank screen to confirm that my coordinate system and circle-drawing logic were correct. Next, I added two ghosts to verify spatial alignment and ensure that the characters appeared consistently across frames. Once I introduced the maze structure, the complexity increased significantly - particularly with object alignment and priority ordering, since Pac-Man must always appear on top of the background elements. 
+
+Despite the unexpected challenges, working through these problems game me a much deeper understanding of VGA timing, pixel-based rendering, and hardware-driven graphics. The iterative process of refining each component ultimately shaped the final version of my project. 
 
 ### **Code Adaptation**
 Briefly show how you changed the template code to display a different image. Demonstrate your understanding. Guideline: 1-2 short paragraphs.
