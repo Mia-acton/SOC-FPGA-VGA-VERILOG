@@ -55,6 +55,12 @@ I decided to use the Stripes template code as the foundation for my project, mod
 
 The first modification I made was replacing the original stripe-generation logic with my own conditional checks for specific pixel regions. I began with the lowest-priority component - the maze grid - and created it by defining rectangular regions line by line using row and column comparisons. Once the walls rendered correctly, I added additional sections for the pac-dots, ghosts, and finally Pac-Man. This step-by-step restructuring demonstrated how the original template could be adapted from simple coloured stripes into a layered, fully customised VGA image. 
 
+![Image](maze.png)
+![Image](wallspacdots.png)
+![Image](ghosts.png)
+![Image](ghosts2.png)
+![Image](pacman.png)
+
 ### **Simulation**
 To test my VGA design, I simulated the project using Vivado's built-in simulator, which allowed me to examine how the timing signals and RBG outputs behaved over time. In the waveform, key signals such as clk, hsync, vsync, and the row/col counters can be seen updating as the pixel clock advances. Watching these counters increment and reset confimred that the VGA timing generator was working correctly - particularly the transition through the active video region and the blanking intervals. I also monitored the red, green, and blue outputs to verify that colour values were being assigned only when the row and column matched the coordinate ranges of Pac-Man, the ghosts, or the maze walls. 
 
@@ -71,6 +77,8 @@ Unlike the original template, my version did not fully meet timing. Vivado repor
 
 ### **Demonstration**
 While my final design may not have been perfect, it successfully produced a Pac-Man themed display on the VGA monitor. I was able to see Pac-Man, the ghosts, pac-dots, and maze all rendered from my Verilog logic, which was rewarding after working through alignment and timing issues. Even with some minor visual imperfections, the project demonstrated that my VGA timing and pixel-drawing design worked as intended and helped me understand FPGA graphics much more clearly. 
+
+
 
 ### **References**
 At least 3
