@@ -33,12 +33,16 @@ Examining the synthesis/implementation reports ensures the design meets timing a
 The final design was loaded onto the FPGA and successfully displayed the generated graphics on a VGA monitor. Below are photographs of the working demos showing the output on screen.
 
 ![Image 1](IMG_5756.jpg)
+![Image 1](stripes2.jpg)
 ![Image 2](IMG_5761.jpg)
 
 ## **My VGA Design Edit**
 I decided to create a simple Pac-Man-style visual for my FPGA VGA Driver project. Going into this, I assumed it would be relatively straightforward to configure the VGA logic and draw a few basic shapes on screen - but I quickly discovered that even simple graphics can become challenging when built at the hardware-description level.
 
 To build confidence, I first created a few small practice visuals, including the French and Jamaican flags, as shown below. These early tests helped me establish a foundation in drawing pixel regions, using row/column counters, and controlling RGB signals. Once I felt comfortable with this workflow, I moved on to developing my actual Pac-Man scene. 
+
+![Image 1](french.jpg)
+![Image 1](jamaica.jpg)
 
 My final design consists of four main components:
   - A yellow Pac-Man character
@@ -49,6 +53,10 @@ My final design consists of four main components:
 I decided to build each part in stages, beginning with Pac-Man on a blank screen to confirm that my coordinate system and circle-drawing logic were correct. Next, I added two ghosts to verify spatial alignment and ensure that the characters appeared consistently across frames. Once I introduced the maze structure, the complexity increased significantly - particularly with object alignment and priority ordering, since Pac-Man must always appear on top of the background elements. 
 
 Despite the unexpected challenges, working through these problems gave me a much deeper understanding of VGA timing, pixel-based rendering, and hardware-driven graphics. The iterative process of refining each component ultimately shaped the final version of my project. 
+
+![Image 1](pacman.jpg)
+![Image 1](pacman2.jpg)
+![Image 1](pacman3.jpg)
 
 ### **Code Adaptation**
 I decided to use the Stripes template code as the foundation for my project, modifying it so that instead of solid colour bands, it would draw pixel-based shapes for my Pac-Man scene. To do this, I reorganised the template into clearly defined sections and assigned priority levels to each graphic element. This allowed lower-priority objects (like the maze walls) to be drawn first, while higher-priority objects (such as Pac-Man and the ghosts) were drawn afterward so they would appear on top. 
@@ -78,7 +86,16 @@ Unlike the original template, my version did not fully meet timing. Vivado repor
 ### **Demonstration**
 While my final design may not have been perfect, it successfully produced a Pac-Man themed display on the VGA monitor. I was able to see Pac-Man, the ghosts, pac-dots, and maze all rendered from my Verilog logic, which was rewarding after working through alignment and timing issues. Even with some minor visual imperfections, the project demonstrated that my VGA timing and pixel-drawing design worked as intended and helped me understand FPGA graphics much more clearly. 
 
+![Image 1](final1.jpg)
 
 
 ### **References**
-At least 3
+[1] Digilent, “VGA Signal Tutorial,” Digilent Reference, 2023. [Online]. Available: https://digilent.com/reference/learn/programmable-logic/tutorials/vga-signal
+
+[2] Project F, “FPGA Graphics: VGA,” Project F, 2022. [Online]. Available: https://projectf.io/posts/fpga-graphics/
+
+[3] Xilinx, Vivado Design Suite User Guide: Synthesis (UG901), 2023. [Online]. Available: https://docs.xilinx.com/
+
+[4] “640×480 @ 60 Hz VGA Timing Specification,” VESA, 1994.
+
+[5] M. Lynch, “FPGA VGA Driver Template,” lecture notes and source code provided for SoC module, Department of Engineering, [ATU Galway], 2025.
