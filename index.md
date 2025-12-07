@@ -8,7 +8,7 @@ categories: demo
 Welcome to my FPGA VGA Driver Project, where I bring classic Pac-Man characters to life using pure hardware logic. Explore how an FPGA generates real-time VGA graphics from scratch! 
 ## **Template VGA Design**
 ### **Project Set-Up**
-Summarise the project set-up and design flow. Include a screenshot of your own set-up, for example see the image of my Project Summary window below. Guideline 1 short paragraph.
+For this project, I used the provided VGA template design as a starting point and adapted it to create my own custom Pac-Man visual. My workflow followed a typical FPGA design flow: creating a new Vivado project, adding the template Verilog files, configuring the VGA timing parameters, and then writing my own colour-generation logic to replace the original stripe output. I synthesised, implemented, and simulated the design within Vivado before finally programming the FPGA board to view the output on a VGA monitor. This setup allowed me to test each stage - timing, logic behaviour, and final display - all within a structured hardware-design environment. 
 
 ![Image](setup.png)
 
@@ -65,10 +65,12 @@ To test my VGA design, I simulated the project using Vivado's built-in simulator
 One important observation from simulation is that Vivado does not display the actual picture - instead, it shows signal changes. For example, in my screenshot, I can see the RGB values momentarily swicthing to non-zero values whenever the counters pass through areas where my code draws a specific object. This helped me confirm that my priority logic was correct and that higher-priority objects (like Pac-Man) were drawn after background elements. By reviewing these transitions, I was able to catch small alignment and timing issues before synthesising the design onto hardware.  
 
 ### **Synthesis**
-Describe the synthesis & implementation outputs for your design, are there any differences to that of the original design? Guideline 1-2 short paragraphs.
+After synthesising and implementing my modified VGA design in Vivado, the device view shows that the logic has been mapped across the FPGA in a similar way to the original Stripes template. This is because the core structure - the VGA timing generator and pixel clocking logic - remains unchanged from the template. However, my design introduces additional conditional logic to draw Pac-Man, the ghosts, the maze walls, and the pac-dots, which results in slightly increased utilisation of LUTs and routing resources. The synthesis output confirms that these modules were integrated correctly, and the hierarchy view clearly shows my colour-generation block replacing the original stripe generator. 
+
+Unlike the original template, my version did not fully meet timing. Vivado reported timing violations on paths inside the colour/shape generation logic, where several nested if conditions are evaluated in a single clock cycle. This means that although the design still fits comfortably in terms of area, the extra complexity makes it harder to run reliably at the required pixel clock frequency. In practice the design still worked on hardware, but the timing report highlights that the modified version is more demanding than the simple stripe generator and would benefit from optimisation (for example, simplifying conditions or pipelining parts of the logic). 
 
 ### **Demonstration**
-While my final design may not have been perfect, I did learn a lot from this project. 
+While my final design may not have been perfect, it successfully produced a Pac-Man themed display on the VGA monitor. I was able to see Pac-Man, the ghosts, pac-dots, and maze all rendered from my Verilog logic, which was rewarding after working through alignment and timing issues. Even with some minor visual imperfections, the project demonstrated that my VGA timing and pixel-drawing design worked as intended and helped me understand FPGA graphics much more clearly. 
 
 ### **References**
 At least 3
