@@ -24,14 +24,10 @@ Simulation is used to verify that the VGA modules behave correctly before progra
 
 This step makes it easy to catch logic errors early - for example, incorrect colour ranges or FSM transitions. Once the simulated output matches the expected behaviour (e.g., correct colour sequencing or stripe boundaries), the design is ready for synthesis.
 
-Insert waveform simulation in class. 
-
 ### **Synthesis**
 Synthesis converts your Verilog code into FPGA hardware logic, mapping it into LUTs, registers, block RAM, and routing resources. The Vivado tool produces a synthesis report that shows resource usage and identifies any timing issues. After synthesis, the implementation step places and routes the logic onto the FPGA fabric and generates the bitstream used to program the board.
 
 Examining the synthesis/implementation reports ensures the design meets timing at the VGA pixel clock frequency (typically 25.175 MHz for 640x480 at 60Hz). This confirms your design can reliably generate video signals in real time. 
-
-Insert synthesis summary.
 
 ### **Demonstration**
 The final design was loaded onto the FPGA and successfully displayed the generated graphics on a VGA monitor. Below are photographs of the working demos showing the output on screen.
@@ -50,9 +46,9 @@ My final design consists of four main components:
   - A blue maze-like grid structure
   - Beige pac-dots scattered throughout the maze
 
-I intentionally built each part in stages I began with Pac-Man on a blank screen to confirm that my coordinate system and circle-drawing logic were correct. Next, I added two ghosts to verify spatial alignment and ensure that the characters appeared consistently across frames. Once I introduced the maze structure, the complexity increased significantly - particularly with object alignment and priority ordering, since Pac-Man must always appear on top of the background elements. 
+I decided to build each part in stages, beginning with Pac-Man on a blank screen to confirm that my coordinate system and circle-drawing logic were correct. Next, I added two ghosts to verify spatial alignment and ensure that the characters appeared consistently across frames. Once I introduced the maze structure, the complexity increased significantly - particularly with object alignment and priority ordering, since Pac-Man must always appear on top of the background elements. 
 
-Despite the unexpected challenges, working through these problems game me a much deeper understanding of VGA timing, pixel-based rendering, and hardware-driven graphics. The iterative process of refining each component ultimately shaped the final version of my project. 
+Despite the unexpected challenges, working through these problems gave me a much deeper understanding of VGA timing, pixel-based rendering, and hardware-driven graphics. The iterative process of refining each component ultimately shaped the final version of my project. 
 
 ### **Code Adaptation**
 I decided to use the Stripes template code as the foundation for my project, modifying it so that instead of solid colour bands, it would draw pixel-based shapes for my Pac-Man scene. To do this, I reorganised the template into clearly defined sections and assigned priority levels to each graphic element. This allowed lower-priority objects (like the maze walls) to be drawn first, while higher-priority objects (such as Pac-Man and the ghosts) were drawn afterward so they would appear on top. 
@@ -67,11 +63,11 @@ One important observation from simulation is that Vivado does not display the ac
 ![Image](Picture1.png)
 
 ### **Synthesis**
-After synthesising and implementing my modified VGA design in Vivado, the device view shows that the logic has been mapped across the FPGA in a similar way to the original Stripes template. This is because the core structure - the VGA timing generator and pixel clocking logic - remains unchanged from the template. However, my design introduces additional conditional logic to draw Pac-Man, the ghosts, the maze walls, and the pac-dots, which results in slightly increased utilisation of LUTs and routing resources. The synthesis output confirms that these modules were integrated correctly, and the hierarchy view clearly shows my colour-generation block replacing the original stripe generator. 
+After synthesising and implementing my modified VGA design in Vivado, the reports showed that the additional Pac-Man drawing logic increased the amount of combinational logic compared to the original Stripes template. Most of the extra utilisation came from the numerous row/column comparisons used to draw the characters and maze. 
 
-Unlike the original template, my version did not fully meet timing. Vivado reported timing violations on paths inside the colour/shape generation logic, where several nested if conditions are evaluated in a single clock cycle. This means that although the design still fits comfortably in terms of area, the extra complexity makes it harder to run reliably at the required pixel clock frequency. In practice the design still worked on hardware, but the timing report highlights that the modified version is more demanding than the simple stripe generator and would benefit from optimisation (for example, simplifying conditions or pipelining parts of the logic). 
+Unlike the original template, my version did not fully meet timing. Vivado reported timing violations on paths inside the colour and shape-generation logic, where several nested if conditions are evaluated within a single clock cycle. This means that although the design still fits comfortably in terms of area, the extra complexity makes it harder to run reliably at the required pixel clock frequency. In practice the design still worked on hardware, but the timing report highlights that the modified version is more demanding than the simple stripe generator and would benefit from optimisation (for example, simplifying conditions or pipelining parts of the logic). 
 
-![Image](Picture1.png)
+![Image](Picture2.png)
 
 ### **Demonstration**
 While my final design may not have been perfect, it successfully produced a Pac-Man themed display on the VGA monitor. I was able to see Pac-Man, the ghosts, pac-dots, and maze all rendered from my Verilog logic, which was rewarding after working through alignment and timing issues. Even with some minor visual imperfections, the project demonstrated that my VGA timing and pixel-drawing design worked as intended and helped me understand FPGA graphics much more clearly. 
