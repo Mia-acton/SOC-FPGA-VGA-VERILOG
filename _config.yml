@@ -1,9 +1,9 @@
 # Site settings
 title: System-on-Chip Design & Verification
 author:
-  name: Michelle Lynch
-  email: your-email@domain.com
-description: "A blog."
+  name: Mia Acton
+  email: G00428601@atu.ie
+description: "SoC Project Blog."
 
 # Build settings
 remote_theme: jekyll/minima
