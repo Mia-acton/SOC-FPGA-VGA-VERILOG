@@ -91,10 +91,16 @@ While my final design may not have been perfect, it successfully produced a Pac-
 
 
 ### **References**
-[1] Project F, “FPGA Graphics: VGA,” Project F, 2022. [Online]. Available: [https://projectf.io/posts/fpga-graphics/]
+References
 
-[2] M. Lynch, “FPGA VGA Driver Template,” lecture notes and source code provided for SoC module, Department of Engineering, [ATU Galway], 2025.
+[1] Project F, “FPGA Graphics: VGA,” Project F, 2022. [Online].  
+Available: [https://projectf.io/posts/fpga-graphics/](https://projectf.io/posts/fpga-graphics/)
 
-[3] V. H. Adams, "VGA Driver in Verilog," VanhunterAdams.com. [Online]. Available: [https://vanhunteradams.com/DE1/VGA_Driver/Driver.html]
+[2] M. Lynch, “FPGA VGA Driver Template,” lecture notes and source code provided for SoC module,  
+Department of Engineering, ATU Galway, 2025.
 
-[4] "VGA on-FPGAs - VGA Driver and Verilog Examples," FPGA4Fun.com. [Online}. Available: [https://www.fpga4fun.com/VGA.html]
+[3] V. H. Adams, “VGA Driver in Verilog,” VanhunterAdams.com. [Online].  
+Available: [https://vanhunteradams.com/DE1/VGA_Driver/Driver.html](https://vanhunteradams.com/DE1/VGA_Driver/Driver.html)
+
+[4] “VGA on-FPGAs – VGA Driver and Verilog Examples,” FPGA4Fun.com. [Online].  
+Available: [https://www.fpga4fun.com/VGA.html](https://www.fpga4fun.com/VGA.html)
