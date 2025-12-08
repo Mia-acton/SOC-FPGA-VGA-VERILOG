@@ -91,8 +91,6 @@ While my final design may not have been perfect, it successfully produced a Pac-
 
 
 ### **References**
-References
-
 [1] Project F, “FPGA Graphics: VGA,” Project F, 2022. [Online].  
 Available: [https://projectf.io/posts/fpga-graphics/](https://projectf.io/posts/fpga-graphics/)
 
