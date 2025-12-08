@@ -62,6 +62,8 @@ I decided to use the Stripes template code as the foundation for my project, mod
 
 The first modification I made was replacing the original stripe-generation logic with my own conditional checks for specific pixel regions. I began with the lowest-priority component - the maze grid - and created it by defining rectangular regions line by line using row and column comparisons. Once the walls rendered correctly, I added additional sections for the pac-dots, ghosts, and finally Pac-Man. This step-by-step restructuring demonstrated how the original template could be adapted from simple coloured stripes into a layered, fully customised VGA image. 
 
+As I developed each part of the scene, I found myself gradually building more confidence with how VGA timing and pixel drawing actually work. The ghosts, for example, are made from a combination of small rectangles: one block for the body and smaller ones for the eyes and pupils, each controlled by their own pixel-range conditions. Pac-man is a circular region with a triangualr section removed from the mouth, which pushed me to experiment with different mathematical expressions and shape cut-outs. Although the code looks long, the logic behind it is surprisingly intuitive - it felt almost like assembling a picture piece by piece, with each new if statement adding another element to the final scene. 
+
 ![Image](maze.png)
 ![Image](wallspacdots.png)
 ![Image](ghosts.png)
