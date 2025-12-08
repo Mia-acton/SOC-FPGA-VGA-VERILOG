@@ -39,7 +39,7 @@ The final design was loaded onto the FPGA and successfully displayed the generat
 ## **My VGA Design Edit**
 I decided to create a simple Pac-Man-style visual for my FPGA VGA Driver project. Going into this, I assumed it would be relatively straightforward to configure the VGA logic and draw a few basic shapes on screen - but I quickly discovered that even simple graphics can become challenging when built at the hardware-description level.
 
-To build confidence, I first created a few small practice visuals, including the French and Jamaican flags, as shown below. These early tests helped me establish a foundation in drawing pixel regions, using row/column counters, and controlling RGB signals. Once I felt comfortable with this workflow, I moved on to developing my actual Pac-Man scene. 
+To build confidence, I first created a few small practice visuals, including the French and Jamaican flags, as shown below. These early tests helped me establish a foundation in drawing pixel regions, using row/column counters, and controlling RGB signals. Once I felt comfortable with this workflow, I moved on to developing my actual Pac-Man design. 
 
 ![Image 1](french.jpg)
 ![Image 1](jamaica.jpg)
@@ -52,17 +52,17 @@ My final design consists of four main components:
 
 I decided to build each part in stages, beginning with Pac-Man on a blank screen to confirm that my coordinate system and circle-drawing logic were correct. Next, I added two ghosts to verify spatial alignment and ensure that the characters appeared consistently across frames. Once I introduced the maze structure, the complexity increased significantly - particularly with object alignment and priority ordering, since Pac-Man must always appear on top of the background elements. 
 
-Despite the unexpected challenges, working through these problems gave me a much deeper understanding of VGA timing, pixel-based rendering, and hardware-driven graphics. The iterative process of refining each component ultimately shaped the final version of my project. Below are some of the early visuals I produced as I experimented with drawing Pac-Man and refining the layout of the scene. 
+Despite the unexpected challenges, working through these problems gave me a much deeper understanding of VGA timing, pixel-based rendering, and hardware-driven graphics. The iterative process of refining each component ultimately shaped the final version of my project. Below are some of the early visuals I produced as I experimented with drawing Pac-Man and refining the layout of my design. 
 
 ![Image 1](pacman2.jpg)
 ![Image 1](pacman3.jpg)
 
 ### **Code Adaptation**
-I decided to use the Stripes template code as the foundation for my project, modifying it so that instead of solid colour bands, it would draw pixel-based shapes for my Pac-Man scene. To do this, I reorganised the template into clearly defined sections and assigned priority levels to each graphic element. This allowed lower-priority objects (like the maze walls) to be drawn first, while higher-priority objects (such as Pac-Man and the ghosts) were drawn afterward so they would appear on top. 
+I decided to use the Stripes template code as the foundation for my project, modifying it so that instead of solid colour bands, it would draw pixel-based shapes for my Pac-Man design. To do this, I reorganised the template into clearly defined sections and assigned priority levels to each graphic element. This allowed lower-priority objects (like the maze walls) to be drawn first, while higher-priority objects (such as Pac-Man and the ghosts) were drawn afterward so they would appear on top. 
 
 The first modification I made was replacing the original stripe-generation logic with my own conditional checks for specific pixel regions. I began with the lowest-priority component - the maze grid - and created it by defining rectangular regions line by line using row and column comparisons. Once the walls rendered correctly, I added additional sections for the pac-dots, ghosts, and finally Pac-Man. This step-by-step restructuring demonstrated how the original template could be adapted from simple coloured stripes into a layered, fully customised VGA image. 
 
-As I developed each part of the scene, I found myself gradually building more confidence with how VGA timing and pixel drawing actually work. The ghosts, for example, are made from a combination of small rectangles: one block for the body and smaller ones for the eyes and pupils, each controlled by their own pixel-range conditions. Pac-man is a circular region with a triangualr section removed from the mouth, which pushed me to experiment with different mathematical expressions and shape cut-outs. Although the code looks long, the logic behind it is surprisingly intuitive - it felt almost like assembling a picture piece by piece, with each new if statement adding another element to the final scene. 
+As I developed each part of my design, I found myself gradually building more confidence with how VGA timing and pixel drawing actually work. The ghosts, for example, are made from a combination of small rectangles: one block for the body and smaller ones for the eyes and pupils, each controlled by their own pixel-range conditions. Pac-man is a circular region with a triangualr section removed from the mouth, which pushed me to experiment with different mathematical expressions and shape cut-outs. Although the code looks long, the logic behind it is surprisingly intuitive - it felt almost like assembling a picture piece by piece, with each new if statement adding another element to the final design. 
 
 ![Image](maze.png)
 ![Image](wallspacdots.png)
