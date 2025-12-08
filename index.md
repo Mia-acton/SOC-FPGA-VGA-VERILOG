@@ -90,12 +90,10 @@ While my final design may not have been perfect, it successfully produced a Pac-
 
 
 ### **References**
-[1] Digilent, “VGA Signal Tutorial,” Digilent Reference, 2023. [Online]. Available: https://digilent.com/reference/learn/programmable-logic/tutorials/vga-signal
+[1] Project F, “FPGA Graphics: VGA,” Project F, 2022. [Online]. Available: [https://projectf.io/posts/fpga-graphics/]
 
-[2] Project F, “FPGA Graphics: VGA,” Project F, 2022. [Online]. Available: https://projectf.io/posts/fpga-graphics/
+[2] M. Lynch, “FPGA VGA Driver Template,” lecture notes and source code provided for SoC module, Department of Engineering, [ATU Galway], 2025.
 
-[3] Xilinx, Vivado Design Suite User Guide: Synthesis (UG901), 2023. [Online]. Available: https://docs.xilinx.com/
+[3] V. H. Adams, "VGA Driver in Verilog," VanhunterAdams.com. [Online]. Available: [https://vanhunteradams.com/DE1/VGA_Driver/Driver.html]
 
-[4] “640×480 @ 60 Hz VGA Timing Specification,” VESA, 1994.
-
-[5] M. Lynch, “FPGA VGA Driver Template,” lecture notes and source code provided for SoC module, Department of Engineering, [ATU Galway], 2025.
+[4] "VGA on-FPGAs - VGA Driver and Verilog Examples," FPGA4Fun.com. [Online}. Available: [https://www.fpga4fun.com/VGA.html]
