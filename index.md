@@ -10,7 +10,7 @@ Welcome to my FPGA VGA Driver Project, where I bring classic Pac-Man characters 
 ### **Project Set-Up**
 For this project, I used the provided VGA template design as a starting point and adapted it to create my own custom Pac-Man visual. My workflow followed a typical FPGA design flow: creating a new Vivado project, adding the template Verilog files, configuring the VGA timing parameters, and then writing my own colour-generation logic to replace the original stripe output. I synthesised, implemented, and simulated the design within Vivado before finally programming the FPGA board to view the output on a VGA monitor. This setup allowed me to test each stage - timing, logic behaviour, and final display - all within a structured hardware-design environment. 
 
-![Image](setup.png)
+![Image](graph.png)
 
 ### **Template Code**
 The template Verilog modules provided by my lecturer - ColourCycle and ColourStripes - introduce the basic structure for generating RGB signals on an FPGA using VGA timing. Both templates are designed to work alongside a VGA controller that outputs the current pixel's row and column coordinates, as well as the horizontal and vertical sync pulses. VGA works by scanning each pixel of the screen one row at a time, so the Verilog design must produce a correct RGB value for every (row, col) position during the active video period. 
