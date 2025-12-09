@@ -75,14 +75,14 @@ To test my VGA design, I simulated the project using Vivado's built-in simulator
 
 One important observation from simulation is that Vivado does not display the actual picture - instead, it shows signal changes. For example, in my screenshot, I can see the RGB values momentarily swicthing to non-zero values whenever the counters pass through areas where my code draws a specific object. This helped me confirm that my priority logic was correct and that higher-priority objects (like Pac-Man) were drawn after background elements. By reviewing these transitions, I was able to catch small alignment and timing issues before synthesising the design onto hardware. 
 
-![Image](Synth.png)
+![Image](SynthBEST.png)
 
 ### **Synthesis**
 After synthesising and implementing my modified VGA design in Vivado, the reports showed that the additional Pac-Man drawing logic increased the amount of combinational logic compared to the original Stripes template. Most of the extra utilisation came from the numerous row/column comparisons used to draw the characters and maze. 
 
 Unlike the original template, my version did not fully meet timing. Vivado reported timing violations on paths inside the colour and shape-generation logic, where several nested if conditions are evaluated within a single clock cycle. This means that although the design still fits comfortably in terms of area, the extra complexity makes it harder to run reliably at the required pixel clock frequency. In practice the design still worked on hardware, but the timing report highlights that the modified version is more demanding than the simple stripe generator and would benefit from optimisation (for example, simplifying conditions or pipelining parts of the logic). 
 
-![Image](SynthBEST.png)
+![Image](Synth.png)
 
 ### **Demonstration**
 While my final design may not have been perfect, it successfully produced a Pac-Man themed display on the VGA monitor. I was able to see Pac-Man, the ghosts, pac-dots, and maze all rendered from my Verilog logic, which was rewarding after working through alignment and timing issues. Even with some minor visual imperfections, the project demonstrated that my VGA timing and pixel-drawing design worked as intended and helped me understand FPGA graphics much more clearly. 
